@@ -1,0 +1,26 @@
+# Base Image
+FROM node
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json to the working directory
+COPY package*.json ./
+
+# Install yarn in container
+RUN npm install -g yarn
+
+# Install dependencies using package.json
+RUN yarn install
+
+# Copy project files to the working directory
+COPY . .
+
+# Set environment variable PORT which is the PORT the container will run on
+ENV PORT=8080
+
+# Expose the PORT
+EXPOSE 8080
+
+# Start the client application
+CMD ["yarn", "start:client"]
