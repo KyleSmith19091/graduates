@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package.json to the working directory
 COPY package*.json ./
 
-# Install yarn in container
-RUN npm install -g yarn
+# Copy yarn.lock to the working directory
+COPY yarn.lock ./
 
 # Install dependencies using package.json
 RUN yarn install
