@@ -1,5 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 
+// Please GraphQL resolvers for this project
+
 @Controller('example')
 export class FeatureController {
   @Get()
